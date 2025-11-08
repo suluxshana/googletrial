@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover premium writing instruments for professionals, students, and pen enthusiasts. Quality pens for every writing need.">
+    <title>Premium Pens - Quality Writing Instruments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .page-section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background: #667eea;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .product-btn:hover {
+            background: #5568d3;
+        }
+
+        .article-section {
+            margin-bottom: 3rem;
+        }
+
+        .article-section h2 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-section h3 {
+            color: #2a5298;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .article-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">✒️ PremiumPens</div>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('products')">Products</a></li>
+                    <li><a href="#" onclick="showPage('guide')">Buying Guide</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li><a href="#" onclick="showPage('privacy')">Privacy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="home" class="page-section active">
+        <div class="hero">
+            <div class="container">
+                <h1>Discover the Art of Fine Writing</h1>
+                <p>Premium pens for professionals, students, and collectors</p>
+                <a href="#" onclick="showPage('products')" class="btn">Explore Our Collection</a>
+            </div>
+        </div>
+
+        <main class="container">
+            <div class="features">
+                <div class="feature-box">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Quality Craftsmanship</h3>
+                    <p>Every pen is carefully selected for superior writing performance and durability</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Elegant Designs</h3>
+                    <p>From classic to contemporary styles that make a statement</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">💼</div>
+                    <h3>Professional Grade</h3>
+                    <p>Perfect for business meetings, contracts, and everyday writing</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Perfect Gifts</h3>
+                    <p>Thoughtful presents for graduations, promotions, and special occasions</p>
+                </div>
+            </div>
+
+            <div class="article-section">
+                <h2>Why Quality Pens Matter</h2>
+                <p>In our digital age, the act of writing by hand remains a powerful and personal experience. A quality pen is more than just a writing instrument—it's an extension of your thoughts, a tool for creativity, and often a reflection of your personal style and professionalism.</p>
+
+                <p>Studies have shown that handwriting activates different parts of the brain compared to typing, improving memory retention and cognitive function. When you write with a quality pen, the smooth ink flow and comfortable grip make the experience more enjoyable, encouraging you to write more often and for longer periods.</p>
+
+                <p>Professional settings particularly value quality writing instruments. Signing important documents, taking notes in meetings, or simply jotting down ideas—these moments are enhanced by a pen that writes smoothly and reliably. A quality pen makes a statement about attention to detail and appreciation for craftsmanship.</p>
+            </div>
+
+            <div class="article-section">
+                <h2>The History of Fine Writing Instruments</h2>
+                <p>The evolution of the pen is a fascinating journey through human innovation. From ancient reed pens used in Mesopotamia to the quill feathers of medieval scribes, humanity has always sought better ways to record thoughts and ideas.</p>
+
+                <p>The fountain pen, invented in the nineteenth century, revolutionized writing by providing a consistent ink flow without constant dipping. This innovation made writing more accessible and practical for everyday use. The ballpoint pen, developed in the twentieth century, further democratized writing with its convenience and reliability.</p>
+
+                <p>Today, we have an incredible variety of writing instruments, each designed for specific purposes and preferences. Fountain pens remain popular among enthusiasts who appreciate the traditional writing experience, while modern ballpoint and gel pens offer convenience without sacrificing quality.</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="products" class="page-section">
+        <main class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: #1e3c72; margin-bottom: 2rem;">Our Premium Collection</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🖊️</div>
+                    <div class="product-info">
+                        <h3>Executive Fountain Pen</h3>
+                        <div class="price">$89.99</div>
+                        <p>Elegant fountain pen with gold-plated nib. Perfect for signatures and formal writing. Includes premium ink cartridges and presentation box.</p>
+                        <a href="#" class="product-btn">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">✒️</div>
+                    <div class="product-info">
+                        <h3>Professional Ballpoint Set</h3>
+                        <div class="price">$45.99</div>
+                        <p>Set of 3 premium ballpoint pens in black, blue, and burgundy. Smooth writing with ergonomic grip. Ideal for daily professional use.</p>
+                        <a href="#" class="product-btn">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🖋️</div>
+                    <div class="product-info">
+                        <h3>Luxury Rollerball Pen</h3>
+                        <div class="price">$65.99</div>
+                        <p>Sleek rollerball with liquid ink technology. Combines fountain pen smoothness with ballpoint convenience. Refillable and eco-friendly.</p>
+                        <a href="#" class="product-btn">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">✍️</div>
+                    <div class="product-info">
+                        <h3>Student Gel Pen Pack</h3>
+                        <div class="price">$24.99</div>
+                        <p>Pack of 12 high-quality gel pens in assorted colors. Smooth flow, quick-drying ink. Perfect for note-taking and creative writing.</p>
+                        <a href="#" class="product-btn">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🖊️</div>
+                    <div class="product-info">
+                        <h3>Classic Mechanical Pencil</h3>
+                        <div class="price">$34.99</div>
+                        <p>Premium mechanical pencil with 0.5mm lead. Metal construction with cushioned grip. Ideal for technical drawing and precise writing.</p>
+                        <a href="#" class="product-btn">View Details</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">✒️</div>
+                    <div class="product-info">
+                        <h3>Calligraphy Starter Kit</h3>
+                        <div class="price">$79.99</div>
+                        <p>Complete calligraphy set with fountain pen, multiple nibs, ink bottles, and practice paper. Perfect for beginners and enthusiasts.</p>
+                        <a href="#" class="product-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article-section">
+                <h2>Understanding Pen Types</h2>
+                
+                <h3>Fountain Pens</h3>
+                <p>Fountain pens are the choice of writing enthusiasts who appreciate the traditional experience. They use liquid ink stored in a reservoir, which flows to the paper through a metal nib. The writing pressure required is minimal, making them comfortable for extended writing sessions. Fountain pens require more maintenance than other types but offer unmatched writing elegance and character.</p>
+
+                <h3>Ballpoint Pens</h3>
+                <p>Ballpoint pens are the most practical and widely used writing instruments. They use oil-based ink that dries quickly and rarely smudges. The small rotating ball in the tip distributes ink evenly, making them reliable for various paper types and writing angles. Quality ballpoint pens can write smoothly for years with minimal maintenance.</p>
+
+                <h3>Gel Pens</h3>
+                <p>Gel pens combine the smoothness of fountain pens with the convenience of ballpoints. They use water-based gel ink that flows more freely than ballpoint ink, creating vibrant, consistent lines. Gel pens are popular among students and creative writers for their smooth writing experience and wide color variety.</p>
+
+                <h3>Rollerball Pens</h3>
+                <p>Rollerball pens offer a middle ground between fountain and ballpoint pens. They use liquid or gel ink with a ball-point mechanism, providing smooth writing without the maintenance requirements of fountain pens. The ink flow is more generous than ballpoints, creating darker, more fluid lines.</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="guide" class="page-section">
+        <main class="container">
+            <div class="article-section">
+                <h2>Complete Pen Buying Guide</h2>
+                
+                <h3>Choosing the Right Pen for Your Needs</h3>
+                <p>Selecting the perfect pen depends on several factors including your writing style, frequency of use, budget, and personal preferences. This comprehensive guide will help you make an informed decision.</p>
+
+                <h3>Consider Your Writing Frequency</h3>
+                <p>Daily writers who spend hours with pen in hand should prioritize comfort and ink flow. Fountain pens or quality gel pens reduce hand fatigue during extended writing sessions. The initial investment in a quality pen pays off through improved writing comfort and reduced strain.</p>
+
+                <p>Occasional writers might prefer the convenience and reliability of ballpoint pens. They require no maintenance, work on almost any paper, and their ink lasts for years without drying out. A quality ballpoint pen provides reliable performance whenever you need it.</p>
+
+                <h3>Writing Environment Matters</h3>
+                <p>Professional environments often call for sophisticated writing instruments. A quality fountain pen or executive ballpoint makes a positive impression during meetings and contract signings. The pen you choose reflects your attention to detail and professionalism.</p>
+
+                <p>Students need pens that balance performance with affordability. Gel pens offer smooth writing for note-taking and assignments without breaking the budget. A reliable pen that writes consistently helps maintain focus during lectures and study sessions.</p>
+
+                <h3>Understanding Grip and Comfort</h3>
+                <p>The pen's grip significantly affects writing comfort. Rubberized or textured grips prevent slipping and reduce the pressure needed to hold the pen. The barrel diameter should match your hand size—larger hands generally prefer thicker barrels, while smaller hands benefit from slimmer profiles.</p>
+
+                <p>Weight distribution is equally important. A well-balanced pen feels natural in your hand and reduces fatigue. Try writing a few sentences to assess whether the pen's weight and balance suit your writing style.</p>
+
+                <h3>Ink Quality and Performance</h3>
+                <p>Quality ink flows smoothly without skipping or bleeding through paper. It should dry quickly to prevent smudging but not so quickly that it clogs the pen. Water-resistant or permanent ink is essential for important documents and records.</p>
+
+                <p>Consider ink color carefully. Blue and black are professional standards, but having a variety of colors can be useful for color-coding notes, editing documents, or creative projects. Quality colored inks maintain their vibrancy without fading quickly.</p>
+
+                <h3>Refillability and Sustainability</h3>
+                <p>Refillable pens are more economical and environmentally friendly than disposable ones. While the initial cost is higher, refills are significantly cheaper than buying new pens repeatedly. Quality refillable pens can last for decades with proper care.</p>
+
+                <p>Many manufacturers offer compatible refills, providing flexibility in ink type and color. Some fountain pens can be converted between cartridges and bottled ink, offering even more options for customization.</p>
+
+                <h3>Special Features to Consider</h3>
+                <p>Retractable mechanisms protect the pen tip and prevent ink stains in pockets and bags. Clip quality matters if you frequently attach pens to notebooks or shirt pockets. A sturdy clip securely holds the pen without breaking or bending.</p>
+
+                <p>Some pens include additional features like stylus tips for touchscreens, LED lights for writing in dim conditions, or built-in levels for technical work. Consider which features would genuinely enhance your writing experience.</p>
+
+                <h3>Budget Considerations</h3>
+                <p>Quality pens are available at every price point. Entry-level quality pens starting around twenty dollars offer significant improvements over basic disposable pens. Mid-range pens between forty and one hundred dollars provide excellent writing performance and durability.</p>
+
+                <p>Premium pens exceeding one hundred dollars combine superior materials, craftsmanship, and writing performance. These are investments that can last a lifetime with proper care. Consider your budget alongside how frequently you'll use the pen and the impression you wish to make.</p>
+
+                <h3>Care and Maintenance</h3>
+                <p>Proper maintenance extends pen life significantly. Store pens horizontally to prevent ink from settling. Clean fountain pen nibs regularly to prevent clogging. Replace refills before they run completely dry to maintain optimal performance.</p>
+
+                <p>Protect pens from extreme temperatures and direct sunlight. Use appropriate ink types recommended by the manufacturer. With proper care, a quality pen becomes a reliable companion for years of writing.</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="about" class="page-section">
+        <main class="container">
+            <div class="article-section">
+                <h2>About PremiumPens</h2>
+                <p>Welcome to PremiumPens, your trusted destination for quality writing instruments. We are passionate about the art of writing and believe that everyone deserves to experience the pleasure of writing with a quality pen.</p>
+
+                <p>Founded by writing enthusiasts, our mission is to make premium pens accessible to everyone—from students and professionals to collectors and gift-givers. We carefully curate our collection to include only pens that meet our high standards for quality, design, and value.</p>
+
+                <h3>Our Philosophy</h3>
+                <p>We believe that writing by hand is a personal and meaningful act that deserves quality tools. In our increasingly digital world, the simple pleasure of putting pen to paper connects us to centuries of human tradition and creativity.</p>
+
+                <p>Every pen in our collection is selected based on writing performance, build quality, and design excellence. We test each pen ourselves to ensure it meets the standards we would want for our own writing.</p>
+
+                <h3>Why Choose Us</h3>
+                <p>We offer expert guidance to help you find the perfect pen for your needs. Our detailed product descriptions and buying guides provide the information you need to make confident decisions. We stand behind every product we sell with reliable customer service and support.</p>
+
+                <p>Whether you're purchasing your first quality pen or adding to an established collection, we're here to help you discover writing instruments that bring joy to your daily routine.</p>
+
+                <h3>Our Commitment</h3>
+                <p>We are committed to sustainable practices, offering refillable pens and eco-friendly options whenever possible. We partner with manufacturers who share our values of quality craftsmanship and environmental responsibility.</p>
+
+                <p>Thank you for choosing PremiumPens. We look forward to helping you find writing instruments that inspire and delight.</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="contact" class="page-section">
+        <main class="container">
+            <div class="article-section">
+                <h2>Contact Us</h2>
+                <p>We're here to help you find the perfect writing instrument. Whether you have questions about our products, need recommendations, or want to provide feedback, we'd love to hear from you.</p>
+                
+                <h3>Get in Touch</h3>
+                <p><strong>Email:</strong> info@premiumpens-example.com</p>
+                <p><strong>Customer Service:</strong> support@premiumpens-example.com</p>
+                <p><strong>Business Inquiries:</strong> business@premiumpens-example.com</p>
+                
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                <p>Saturday: 10:00 AM - 4:00 PM EST</p>
+                <p>Sunday: Closed</p>
+                
+                <p>We typically respond to all inquiries within 24 hours during business days. For urgent matters, please mark your email as high priority.</p>
+                
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for pen reviews, writing tips, special offers, and updates:</p>
+                <p>Facebook | Instagram | Twitter | Pinterest</p>
+                
+                <h3>Visit Our Showroom</h3>
+                <p>Experience our pens in person at our showroom (address would go here). By appointment only—please email to schedule a visit.</p>
+            </div>
+        </main>
+    </div>
+
+    <div id="privacy" class="page-section">
+        <main class="container">
+            <div class="article-section">
+                <h2>Privacy Policy</h2>
+                <p><strong>Effective Date: November 2025</strong></p>
+                
+                <p>At PremiumPens, we respect your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and safeguard your data when you visit our website.</p>
+                
+                <h3>Information Collection</h3>
+                <p>We collect information that you voluntarily provide when you contact us, subscribe to our newsletter, or make inquiries about our products. This may include your name, email address, phone number, and any messages you send us.</p>
+                
+                <p>We also automatically collect certain information about your device and how you interact with our website, including your IP address, browser type, pages visited, and time spent on our site.</p>
+                
+                <h3>How We Use Your Information</h3>
+                <p>We use the information we collect to respond to your inquiries, process orders, send newsletters if you've subscribed, improve our website and services, and analyze website usage patterns.</p>
+                
+                <p>We will never sell, rent, or share your personal information with third parties for their marketing purposes without your explicit consent.</p>
+                
+                <h3>Cookies and Tracking</h3>
+                <p>Our website uses cookies to enhance your browsing experience, remember your preferences, and analyze site traffic. You can control cookie preferences through your browser settings, though some features may not function properly if cookies are disabled.</p>
+                
+                <h3>Third-Party Services</h3>
+                <p>We use third-party services for website analytics and advertising, including Google Analytics and Google AdSense. These services may collect information about your visits to our website and other websites to provide relevant advertisements and analytics.</p>
+                
+                <p>Google AdSense uses cookies to serve ads based on your prior visits to our website or other websites. You may opt out of personalized advertising by visiting Google's Ads Settings.</p>
+                
+                <h3>Data Security</h3>
+                <p>We implement reasonable security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. However, no internet transmission is completely secure, and we cannot guarantee absolute security.</p>
+                
+                <h3>Your Rights</h3>
+                <p>You have the right to access, correct, or delete your personal information. You may unsubscribe from our newsletters at any time by clicking the unsubscribe link in any email or contacting us directly.</p>
+                
+                <h3>Children's Privacy</h3>
+                <p>Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+                
+                <h3>Changes to This Policy</h3>
+                <p>We may update this privacy policy periodically. We will notify you of any significant changes by posting the new policy on this page with an updated effective date.</p>
+                
+                <h3>Contact Us</h3>
+                <p>If you have questions about this privacy policy or our data practices, please contact us at privacy@premiumpens-example.com</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('products')">Products</a>
+                <a href="#" onclick="showPage('guide')">Buying Guide</a>
+                <a href="#" onclick="showPage('about')">About</a>
+                <a href="#" onclick="showPage('contact')">Contact</a>
+                <a href="#" onclick="showPage('privacy')">Privacy Policy</a>
+            </div>
+            <p>&copy; 2025 PremiumPens. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Quality Writing Instruments for Every Occasion</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.getElementById(pageId).classList.add('active');
+            
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
